@@ -1,13 +1,17 @@
 import Fastify from "fastify";
+import fastifyJwt from "@fastify/jwt";
 import cors from "@fastify/cors";
 import helmet from "@fastify/helmet";
 import { routes } from "./routes";
 import { errorHandler } from "./common/middleware/error.middleware";
-import { logger } from "./config/logger";
+import { env } from "./config/env";
 
 export const app = Fastify({
-  loggerInstance: logger,
-  //logger: logger,
+  logger: true,
+});
+
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET,
 });
 
 app.register(cors);
