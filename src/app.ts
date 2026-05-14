@@ -5,9 +5,10 @@ import helmet from "@fastify/helmet";
 import { routes } from "./routes";
 import { errorHandler } from "./common/middleware/error.middleware";
 import { env } from "./config/env";
+import { logger } from "./config/logger";
 
 export const app = Fastify({
-  logger: true,
+  loggerInstance: logger,
 });
 
 app.register(fastifyJwt, {
