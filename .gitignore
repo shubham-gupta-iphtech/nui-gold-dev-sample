@@ -1,4 +1,31 @@
-node_modules/*
-package-lock.json
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS system files
 .DS_Store
-dist
+
+# IDE files
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# TypeScript build info
+*.tsbuildinfo
