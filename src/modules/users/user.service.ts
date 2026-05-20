@@ -1,10 +1,8 @@
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { sequelize } from "../../config/database";
-import { CreateUserInput, User } from "../../database/models/user.model";
 import { UserRepository } from "./user.repository";
 import { RegisterInput, SetPasswordInput } from "./user.types";
-import { EmailService } from "../../common/services/email.service";
 
 export class UserService {
   static async registerTrader(data: RegisterInput) {
@@ -105,10 +103,10 @@ export class UserService {
       );
 
       // Send Email
-      await EmailService.sendSetPasswordEmail(
-        traderUser.email,
-        traderRawToken
-      );
+      // await EmailService.sendSetPasswordEmail(
+      //   traderUser.email,
+      //   traderRawToken
+      // );
 
       // Employees array
       const createdEmployees =
@@ -179,10 +177,7 @@ export class UserService {
         );
 
         // Send email
-        await EmailService.sendSetPasswordEmail(
-          createdEmployee.email,
-          employeeRawToken
-        );
+        
 
         createdEmployees.push(
           updatedEmployee
