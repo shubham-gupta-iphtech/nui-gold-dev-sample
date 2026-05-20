@@ -7,4 +7,6 @@ export async function userRoutes(app: FastifyInstance) {
   app.post("/login",UserController.login);
   app.get("/",UserController.getAll);
   app.get("/:id",UserController.getUserById);
+  app.patch("/:id/approve-kyc",UserController.approveKyc);
+  app.patch("/:id/reject-kyc",UserController.rejectKyc);
 }
